@@ -6,7 +6,7 @@ const todo = (sequelize, Sequelize) => {
       autoIncrement: true,
     },
 
-    text: {
+    content: {
       type: Sequelize.STRING,
       allowNull: false,
       validate: {

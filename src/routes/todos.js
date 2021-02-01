@@ -78,7 +78,7 @@ router.post("/", async (request, response) => {
   }
 
   const todo = await request.context.models.Todo.create({
-    text: request.body.text,
+    content: request.body.content,
     isPrivate: request.body.isPrivate,
     userId: request.body.userId,
   });
@@ -106,7 +106,7 @@ router.put("/:todoId", async (request, response) => {
 
   const todo = await request.context.models.Todo.upsert({
     id: request.params.todoId,
-    text: request.body.text,
+    content: request.body.content,
     isPrivate: request.body.isPrivate,
     userId: decodedToken.username,
   });
