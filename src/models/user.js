@@ -16,31 +16,13 @@ const user = (sequelize, Sequelize) => {
         notEmpty: true,
       },
     },
-
-    // registrationDate: {
-    //   type: Sequelize.DATE,
-    // },
   };
-
-  //   const userScope = {
-  //     scopeWithoutPassword: () => ({
-  //       attributes: { exclude: ["passwordHash"] },
-  //     }),
-  //   };
 
   const User = sequelize.define("User", userSchema);
 
   User.associate = (models) => {
     User.hasMany(models.Todo, { foreignKey: "userId", onDelete: "CASCADE" });
   };
-
-  //   User.findByLogin = async (login) => {
-  //     const user = await User.findOne({
-  //       where: { username: login },
-  //     });
-
-  //     return user;
-  //   };
 
   User.prototype.toJSON = function () {
     var values = Object.assign({}, this.get());

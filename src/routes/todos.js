@@ -135,9 +135,6 @@ router.delete("/:todoId", async (request, response) => {
     },
   });
 
-  console.log("===================");
-  console.log(todo);
-
   if (!todo) {
     return response.status(401).json({ error: "Unauthorized" });
   }

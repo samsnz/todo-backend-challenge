@@ -28,12 +28,10 @@ router.post("/", async (request, response) => {
     username: body.username,
     name: body.name,
     passwordHash,
-    // registrationDate: new Date(),
   });
 
   delete savedUser["passwordHash"];
 
-  //   response.json(savedUser);
   return response.status(201).send(savedUser);
 });
 

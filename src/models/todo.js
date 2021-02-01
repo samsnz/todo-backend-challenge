@@ -18,14 +18,6 @@ const todo = (sequelize, Sequelize) => {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
     },
-
-    // dateCreated: {
-    //   type: Sequelize.DATE,
-    // },
-
-    // lastUpdated: {
-    //   type: Sequelize.DATE,
-    // },
   };
 
   const Todo = sequelize.define("Todo", todoSchema);
