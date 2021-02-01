@@ -10,7 +10,7 @@ router.get("/", async (request, response) => {
     ? jwt.verify(request.token, process.env.SECRET)
     : null;
 
-  const isLoggedIn = !(!request?.token || !decodedToken?.username); // Check if if no token (valid or present) and converting to a boolean
+  const isLoggedIn = !(!request.token || !decodedToken.username); // Check if if no token (valid or present) and converting to a boolean
 
   const loggedInUser = isLoggedIn
     ? await request.context.models.User.findByPk(decodedToken.username)
@@ -52,7 +52,7 @@ router.get("/:todoId", async (request, response) => {
     return response.status(404).end();
   }
 
-  if (user.username !== todo?.userId) {
+  if (user.username !== todo.userId) {
     return response.status(401).json({ error: "Unauthorized" });
   }
 
